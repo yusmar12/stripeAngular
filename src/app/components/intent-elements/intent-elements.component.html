@@ -1,0 +1,13 @@
+<form (ngSubmit)="payWithCard()" #form="ngForm">
+    <div class="payment-form credit-card fieldset">
+        <input type="text" placeholder="Nombre" name="name" [(ngModel)]="pago.nombre" #cardName="ngModel">
+        <input type="text" placeholder="Dirección" name="address" [(ngModel)]="pago.direccion" #cardAddress="ngModel">
+        <label class="label-checkout">
+            <div class="card" #card></div>
+        </label>
+        <button class="btn btn-block btn-primary" [disabled]="!inProgress" #submit>Pay</button>
+    </div>
+    <div class="error" *ngIf="cardError">
+        {{cardError}}
+    </div>
+</form>

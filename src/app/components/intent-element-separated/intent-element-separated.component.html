@@ -1,0 +1,16 @@
+<form (ngSubmit)="payWithCard()" #form="ngForm">
+
+    <div class="payment-form">
+        <div name="cardNumber" #cardNumber> </div>
+        <div name="cardExpiry" #cardExpiry> </div>
+        <div name="cardCvc" #cardCvc> </div>
+        <input type="text" name="cp" [ngModel]="pago.codigopostal" #cardZip="ngModel">
+        <input type="text" name="name" [ngModel]="pago.nombre" #cardName="ngModel">
+        <input type="text" name="address" [ngModel]="pago.direccion" #cardAddress="ngModel">
+
+        <button class="btn btn-block btn-primary" [disabled]="!inProgress" #submit>Pay</button>
+    </div>
+    <div class="error" *ngIf="cardError">
+        {{cardError}}
+    </div>
+</form>
